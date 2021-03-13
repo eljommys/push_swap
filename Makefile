@@ -1,6 +1,6 @@
-CHK =	checker/main.c\
-		checker/commands.c\
-		checker/utils.c
+CHK =	checker_sources/main.c\
+		checker_sources/commands.c\
+		checker_sources/utils.c
 
 LIB =	minilibft.c
 

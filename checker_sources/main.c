@@ -49,7 +49,7 @@ void	show(int *a, int *b, int *a_b)
 	printf("\n");
 }
 
-int		check_order(int *a, int *b, int size)
+int		check_order(int *a, int size)
 {
 	int i;
 
@@ -83,7 +83,7 @@ void	exec_commands(char **commands, int argc, char **argv)
 			r_rotate(commands[i][2], a, b, a_b);
 	}
 	show(a, b, a_b);
-	if (check_order(a, b, argc - 1) && !a_b[1])
+	if (check_order(a, argc - 1) && !a_b[1])
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
@@ -95,7 +95,6 @@ int		main(int argc, char **argv)
 	char	c;
 	char	*str;
 	char	**commands;
-	int		i;
 
 	if (check_args(argc, argv))
 	{
