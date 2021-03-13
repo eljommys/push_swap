@@ -22,5 +22,9 @@ int		check_args(int argc, char **argv);
 void	add_char(char **str, char c);
 char	**add_str(char **commands, char *str);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
+void	swap(char to, int *a, int *b, int *a_b);
+void	push(char to, int *a, int *b, int *a_b);
+void	rotate(char to, int *a, int *b, int *a_b);
+void	r_rotate(char to, int *a, int *b, int *a_b);
 
 #endif

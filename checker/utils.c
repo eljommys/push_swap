@@ -22,7 +22,7 @@ void	ft_end(char **commands, int ret)
 	if (commands)
 		free(commands);
 	if (ret)
-		write(1, "One of the arguments is invalid!\n", 33);
+		write(2, "One of the arguments is invalid!\n", 33);
 	exit(ret);
 }
 
@@ -30,15 +30,25 @@ int		check_args(int argc, char **argv)
 {
 	int i;
 	int j;
+	int a[argc - 1];
 
-	if (argc < 2)
+	if (argc < 3)
 		return 1;
-	i = 0;
-	while (++i < argc)
+	i = -1;
+	while (++i < argc - 1)
 	{
 		j = -1;
-		while (argv[i][++j])
-			if (argv[i][j] < '0' || '9' < argv[i][j])
+		while (argv[i + 1][++j])
+			if ((argv[i + 1][j] < '0' || '9' < argv[i + 1][j]) && argv[i + 1][j] != '-')
+				return 1;
+		a[i] = ft_atoi(argv[i + 1]);
+	}
+	i = -1;
+	while (++i < argc - 2)
+	{
+		j = i + 1;
+		while (++j < argc - 1)
+			if (a[i] == a[j])
 				return 1;
 	}
 	return 0;
